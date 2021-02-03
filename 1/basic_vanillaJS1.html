@@ -1,0 +1,97 @@
+<html>
+    <body>
+        <h1 class="title">basic :: JavaScript node access</h1>
+        <div class="container">
+            <p>pre Study</p>
+            <ul id="tutorial">
+                <li class="html">HTML</li>
+                <li class="css">CSS</li>
+                <li class="css3">css3</li>
+                <li class="JavaScript">JavaScript</li>
+                <li class="jquery">jquery</li>
+
+            </ul>
+            <p>portfolio</p>
+        </div>
+        <script>
+            
+
+            // ID로 찾기 document.getElementById(id)
+            var tutorial = document.getElementById("#tutorial");
+        
+           // 태그로 찾기
+           var liList = document.getElementsByTagName("li");
+           console.log(liList);
+
+           // querySelector 는 CSS 스타일과 일치하는 첫번째 노드를 반환
+           // querySelectorAll은 전체 노드를 list로 반환
+           var li = document.querySelectorAll("#tutorial > li");
+           console.log(li);
+           for(var i=0;i<li.length;i++){
+               var className=li[i].className;
+               className=className.slice(3,4);
+               console.log(className.length);
+           }
+
+           // parentNode는 지정된 노드의 부모 노드를 반환 parentElement 부모 엘리먼트 반환
+           var html = document.querySelector(".html");
+           var contUl = html.parentElement;
+           console.log(contUl);
+
+           // 하위(자식) 노드 컬렉션을 Node list obj로 반환
+           var cont=document.querySelector("#tutorial");
+           var contLi = cont.childNodes;
+           console.log(contLi);
+
+           // 자식 요소 컬렉션의 갯수 반환
+           var countLi = cont.childElementCount;
+           console.log(countLi);
+
+           // 자식 요소 컬렉션을 HTML 콜렉션 obj로 반환
+           var contLi2 = cont.children;
+           console.log(contLi2);
+
+           // 지정 노드의 첫 번째 자식노드 obj를 반환
+           var contChild = cont.firstChild;
+           console.log(contChild);
+           
+           // 첫 자식 요소를 반환
+           var contChild2 = cont.firstElementChild;
+           console.log(contChild2);
+
+           // 마지막 자식 노드를 node obj로 반환
+           var contLastChild = cont.lastChild;
+           console.log(contLastChild);
+        
+           // 마지막 자식 요소 반환
+           var contLast2 = cont.lastElementChild;
+           console.log(contLast2);
+
+           // 이전 노드/요소에 접근 (동일 트리 수준에서 지정된 노드의 이전 노드를 반환)
+           var css=document.querySelector(".css");
+           var previous=css.previousElementSibling;
+           console.log(previous);
+           var previous2=css.previousSibling;
+           console.log(previous2);
+
+           // 다음 노드/요소에 접근
+           var next = html.nextSibling;
+           var next2 = html.nextElementSibling;
+           console.log(next);
+           console.log(next2);
+
+           var lli=document.querySelector(".title");
+           var tag=lli.tagName;
+           console.log(tag);
+
+           var p =document.querySelectorAll("p");
+           for(var i=0;i<p.length;i++){
+               console.log(p);
+               if(p[i].textContent == "portfolio"){
+                   p[i].setAttribute("id","portfolio");
+               }
+           }
+
+        </script>
+    </body>
+</html>
